@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace CarBook.DataAccessLayer.Concrete
 {
-    public class CarBookContext : IdentityDbContext
+    public class CarBookContext : IdentityDbContext<AppUser, AppRole, int>
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

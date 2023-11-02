@@ -24,16 +24,23 @@ namespace CarBook.PresentationLayer.Controllers
         public async Task<IActionResult> Index(RegisterViewModel model)
         {
             var appUser = new AppUser()
-            { 
+            {
                 Name = model.Name,
                 Email = model.Email,
                 Surname = model.Surname,
                 UserName = model.Username
             };
             var result = await _userManager.CreateAsync(appUser, model.Password);
-            if(result.Succeeded)
+            if (result.Succeeded)
             {
-                return RedirectToAction("Index","Login");
+                return RedirectToAction("Index", "Login");
+            }
+            else
+            {
+                foreach (var item in result.Errors)
+                {
+                    ModelState.AddModelError("",item.Description);
+                }
             }
             return View();
         }

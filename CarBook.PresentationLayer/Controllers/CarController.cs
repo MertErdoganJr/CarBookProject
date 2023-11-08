@@ -29,5 +29,11 @@ namespace CarBook.PresentationLayer.Controllers
             var values = _carService.TGetAllCarsWithBrands();
             return View(values);
         }
+
+        public IActionResult CarDetails(int id)
+        {
+
+            return View();
+        }
     }
 }

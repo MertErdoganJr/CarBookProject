@@ -12,7 +12,7 @@
 
                 <div class="pt-5">
                     
-                    @await Component.InvokeAsync("_CarDetailCommentComponentPartial")
+                    @await Component.InvokeAsync("_CarDetailCommentComponentPartial", new {id=ViewBag.i})
 
                     @await Component.InvokeAsync("_CarDetailLeaveACommentPartial")
                 </div>

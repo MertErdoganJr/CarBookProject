@@ -24,6 +24,7 @@ namespace CarBook.EntityLayer.Concrete
         public CarStatus CarStatus { get; set; }
         public List<Price> Prices { get; set; }
         public List<CarDetail> CarDetails { get; set; }
+        public List<Comment> Comments { get; set; }
 
     }
 }

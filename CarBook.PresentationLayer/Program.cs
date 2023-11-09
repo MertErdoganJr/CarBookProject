@@ -1,10 +1,13 @@
 using CarBook.BusinessLayer.Abstract;
 using CarBook.BusinessLayer.Concrete;
+using CarBook.BusinessLayer.ValidationRules.ServiceValidation;
 using CarBook.DataAccessLayer.Abstract;
 using CarBook.DataAccessLayer.Concrete;
 using CarBook.DataAccessLayer.EntityFramework;
 using CarBook.EntityLayer.Concrete;
 using CarBook.PresentationLayer.Models;
+using FluentValidation;
+using FluentValidation.AspNetCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -38,9 +41,10 @@ builder.Services.AddScoped<ICarDetailService, CarDetailManager>();
 builder.Services.AddScoped<ICommentDal, EfCommentDal>();
 builder.Services.AddScoped<ICommentService, CommentManager>();
 
+
 builder.Services.AddIdentity<AppUser, AppRole>().AddEntityFrameworkStores<CarBookContext>().AddErrorDescriber<CustomIdentityValidator>();
 
-builder.Services.AddControllersWithViews();
+builder.Services.AddControllersWithViews().AddFluentValidation();
 
 var app = builder.Build();
 

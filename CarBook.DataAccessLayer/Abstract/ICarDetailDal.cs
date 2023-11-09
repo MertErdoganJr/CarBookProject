@@ -10,5 +10,6 @@ namespace CarBook.DataAccessLayer.Abstract
     public interface ICarDetailDal : IGenericDal<CarDetail>
     {
         CarDetail GetCarDetailByCarID(int id);
+        CarDetail GetCarDetailWithAuthor(int id);
     }
 }
